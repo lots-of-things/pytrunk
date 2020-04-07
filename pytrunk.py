@@ -96,15 +96,18 @@ def follow_tooters():
       uri = urllib.parse.quote(f'https://{domain}/users/{name}', safe='')
       target = f'{setup["home_domain"]}/authorize_interaction?uri={uri}'
       driver.get(target)
-      submit = driver.find_element_by_xpath('/html/body/div[2]/div/form/button')
-      print(f"""
+      try:
+        submit = driver.find_element_by_xpath('/html/body/div[2]/div/form/button')
+        print(f"""
 {name}
 {v['lists']}
 {v['last_post']}
 """)
-      follow = input('follow? (press y for yes)')
-      if follow=='y':
-        submit.click()
+        follow = input('follow? (press y for yes)')
+        if follow=='y':
+          submit.click()
+      except:
+        pass
     
 if __name__ == '__main__':
   if len(sys.argv)!=2:
