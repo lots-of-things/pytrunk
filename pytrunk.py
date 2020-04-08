@@ -13,7 +13,7 @@ from selenium import webdriver
 
 def save_lists():
   with open('lists.json', 'w') as f:
-    json.dump(requests.get('https://communitywiki.org/trunk/api/v1/list/').json(),f)
+    json.dump(requests.get('https://communitywiki.org/trunk/api/v1/list/').json(), f, indent=2)
 
 def find_tooters():
   '''
@@ -73,8 +73,8 @@ def find_tooters():
         user_counter[acct]['last_post'] = last_post_text
       except:
         pass
-  with open('tooters.json', 'w') as f:
-    json.dump(user_counter,f)
+    with open('tooters.json', 'w') as file_tooters:
+      json.dump(user_counter, file_tooters, indent=2, sort_keys=True)
 
 
 def follow_tooters():

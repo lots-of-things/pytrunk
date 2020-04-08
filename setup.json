@@ -1,0 +1,7 @@
+{
+    "MAX_N_FOLLOWERS" : 1000,
+    "MIN_N_FOLLOWERS" : 10,
+    "MIN_FOLLOWING_OVER_FOLLOWER_RATIO" : 0.1,
+    "home_domain" : "https://fosstodon.org",
+    "webdriver_location": "/location/of/chromedriver"
+}
