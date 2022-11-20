@@ -97,7 +97,7 @@ def follow_tooters():
       target = f'{setup["home_domain"]}/authorize_interaction?uri={uri}'
       driver.get(target)
       try:
-        submit = driver.find_element_by_xpath('/html/body/div[2]/div/form/button')
+        submit = driver.find_element("xpath", '/html/body/div[2]/div/form/button')
         print(f"""
 {name}
 {v['lists']}
