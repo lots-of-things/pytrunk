@@ -99,10 +99,9 @@ def follow_tooters():
       try:
         submit = driver.find_element("xpath", '/html/body/div[2]/div/form/button')
         print(f"""
-{name}
-{v['lists']}
-{v['last_post']}
-""")
+          {name}
+          {v['lists']}
+          """)
         follow = input('follow? (press y for yes)')
         if follow=='y':
           submit.click()
