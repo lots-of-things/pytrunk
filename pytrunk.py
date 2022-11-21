@@ -97,18 +97,18 @@ def follow_tooters():
       target = f'{setup["home_domain"]}/authorize_interaction?uri={uri}'
       driver.get(target)
       try:
-        submit = driver.find_element_by_xpath('/html/body/div[2]/div/form/button')
+        submit = driver.find_element("xpath", '/html/body/div[2]/div/form/button')
         print(f"""
-{name}
-{v['lists']}
-{v['last_post']}
-""")
+          {name}
+          {v['lists']}
+          {v['last_post'] if 'last_post' in v else None}
+          """)
         follow = input('follow? (press y for yes)')
         if follow=='y':
           submit.click()
       except:
         pass
-    
+
 if __name__ == '__main__':
   if len(sys.argv)!=2:
     print('1 parameter only. options: save_lists, find_tooters, follow_tooters')
