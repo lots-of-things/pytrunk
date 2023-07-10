@@ -78,10 +78,14 @@ def find_tooters():
 
 
 def follow_tooters():
+  from selenium.webdriver.chrome.service import Service as ChromeService
+
   with open('setup.json', 'r') as f:
     setup = json.load(f)
-    
-  driver = webdriver.Chrome(executable_path=setup['webdriver_location'])   
+
+  options = webdriver.ChromeOptions()
+  service = ChromeService(executable_path=setup['webdriver_location'])
+  driver = webdriver.Chrome(service=service, options=options)
   driver.get(f'{setup["home_domain"]}/auth/sign_in')
   signin = input('type "y" once youve signed in: ')
 
